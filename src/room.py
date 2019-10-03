@@ -29,3 +29,6 @@ class Room:
             return self.w_to
         else:
             return None
+
+    def __str__(self):
+        return f"{self.name}\n{self.description}"

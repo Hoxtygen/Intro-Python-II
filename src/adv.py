@@ -34,7 +34,7 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
+#n
 # Main
 #
 
@@ -53,11 +53,11 @@ room['treasure'].s_to = room['narrow']
 
 
 shaolin = Player('Baloo', room["outside"]);
-# print(shaolin.getName())
+#print(shaolin.getCurrentRoom().name)
 while True:
     user_input = input('Enter a direction:\n')
-    print("Name:", shaolin.current_room.name)
-    print("Description:", shaolin.current_room.description)
+    # print("Name:", shaolin.current_room.name)
+    # print("Description:", shaolin.current_room.description)
     if user_input == 'q'.lower():
         break
     if user_input == 'n' or user_input == 's' or user_input == 'e' or user_input == 'w':
@@ -66,3 +66,4 @@ while True:
             print('No way there!')
         else:
             shaolin.setRoom(newRoom)
+            print(newRoom)
