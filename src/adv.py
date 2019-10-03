@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -33,7 +34,7 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
+#n
 # Main
 #
 
@@ -49,3 +50,20 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+
+shaolin = Player('Baloo', room["outside"]);
+#print(shaolin.getCurrentRoom().name)
+while True:
+    user_input = input('Enter a direction:\n')
+    # print("Name:", shaolin.current_room.name)
+    # print("Description:", shaolin.current_room.description)
+    if user_input == 'q'.lower():
+        break
+    if user_input == 'n' or user_input == 's' or user_input == 'e' or user_input == 'w':
+        newRoom = shaolin.current_room.getRoomDirection(user_input)
+        if newRoom == None:
+            print('No way there!')
+        else:
+            shaolin.setRoom(newRoom)
+            print(newRoom)
